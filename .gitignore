@@ -1,0 +1,11 @@
+## NPM
+node_modules/
+
+node_modules/
+npm-debug.log
+
+## Compiled files
+public/
+
+## API info
+client/lib/nest.config.js
