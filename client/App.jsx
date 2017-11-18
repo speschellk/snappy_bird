@@ -1,13 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-
-    // do all event handler binding in the constructor
-  }
+class App extends Component {
+  state = {};
 
   render() {
     return (
