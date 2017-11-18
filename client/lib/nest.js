@@ -8,11 +8,11 @@ const nest = () => {
       grant_type: 'authorization_code',
       code: '9XNUS4H6'
     })
-    .then(({ body }) => {
-      console.log('access_token', body.access_token);
-      bearer(body.access_token);
+    .then(function(res) {
+      console.log('access_token', res.body.access_token);
+      bearer(res.body.access_token);
     })
-    .catch((err) => {
+    .catch(function(err) {
       console.error(err);
     });
 };
