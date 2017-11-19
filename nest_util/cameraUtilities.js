@@ -6,7 +6,6 @@ const getCameraInfo = (token, callback) => {
     .get('https://developer-api.nest.com')
     .accept('application/json')
     .set('Authorization', token)
-    .query()
     .end((err, { body: { devices: { cameras } } }) => {
       if (err) {
         console.error('Error in GET', err);
@@ -18,16 +17,18 @@ const getCameraInfo = (token, callback) => {
     });
 };
 
-const viewWeb = callback => {
-  request.get(web_url);
-};
-
 const viewPublicURL = callback => {
-  request.get(public_share_url);
+  request
+    .get(public_share_url)
+    .then(res => callback(res))
+    .catch(err => console.log(err));
 };
 
 const takeSnapshot = () => {
-  request.get(snapshot_url);
+  request
+    .get(snapshot_url)
+    .then(res => callback(res))
+    .catch(err => console.log(err));
 };
 
 getCameraInfo(ACCESS_TOKEN, info => {
