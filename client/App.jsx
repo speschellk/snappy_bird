@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import Video from './Video';
+import { takeSnapshot } from '../nest_util/cameraUtilities';
+
 
 class App extends Component {
   state = {};
 
   render() {
     return (
-      <div className="first-div">This is the App component and it's beautiful</div>
+      <Video url={'https://video.nest.com/embedded/live/VaM9CN'}/>
     );
   }
 };
