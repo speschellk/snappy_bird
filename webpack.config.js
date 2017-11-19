@@ -1,22 +1,43 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-  entry: path.join(__dirname, 'client', 'index.js'),
+  context: __dirname,
+  entry: [
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',
+    './client/index.jsx'
+  ],
+  devtool: 'cheap-eval-source-map',
   output: {
+    path: path.join(__dirname, 'public'),
     filename: 'bundle.js',
-    path: path.join(__dirname, 'public')
+    publicPath: '/public/'
   },
+  devServer: {
+    hot: true,
+    publicPath: '/public/',
+    historyApiFallback: true
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.json']
+  },
+  stats: {
+    colors: true,
+    reasons: true
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin()
+  ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader?presets[]=es2015&presets[]=react'
+        loader: 'babel-loader'
       }
     ]
-  },
-  resolve: {
-    extensions: ['.js', '.jsx']
-  },
-  devtool: 'inline-source-map'
-}
+  }
+};
