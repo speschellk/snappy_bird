@@ -1,7 +1,7 @@
 const request = require('superagent');
-const { PROD_ID, PROD_SECRET, PIN } = require('./nest.config');
+const { PROD_ID, PROD_SECRET, PIN, ACCESS_TOKEN } = require('./nest.config');
 
-const nest = () => {
+const getBearerToken = () => {
   request
     .post('https://api.home.nest.com/oauth2/access_token')
     .query({
@@ -10,32 +10,11 @@ const nest = () => {
       grant_type: 'authorization_code',
       code: PIN
     })
-    .then(function(res) {
-      console.log('access_token', res.body.access_token);
-      bearer(res.body.access_token);
+    .then(res => {
+      const accessToken = `Bearer ${res.body.access_token}`;
+      bearer(accessToken);
     })
-    .catch(function(err) {
-      console.log(
-        'Error in access token post:',
-        err.response.res.req.socket._httpMessage.res.text
-      );
-    });
+    .catch(err =>
+      console.error('Error in access token post:', err.response.res.req.socket._httpMessage.res.text
+      ));
 };
-
-const bearer = token => {
-  request
-    .get('https://developer-api.nest.com')
-    .accept('application/json')
-    .set('Authorization', `Bearer ${token}`)
-    .query()
-    .end((err, res) => {
-      if (err) {
-        console.log('Error in GET', err);
-      } else {
-        console.log('Response:', res);
-      }
-    });
-};
-
-// TODO: call from App in componentDidMount
-nest();
