@@ -1,4 +1,4 @@
-const request = require('superagent');
+const request = require('axios');
 
 const getCameraInfo = callback => {
   request
