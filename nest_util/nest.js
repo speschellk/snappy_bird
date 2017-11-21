@@ -1,18 +1,16 @@
-const request = require('superagent');
-const { PROD_ID, PROD_SECRET, PIN, ACCESS_TOKEN } = require('./nest.config');
+const axios = require('axios');
 
 const getBearerToken = () => {
-  request
+  axios
     .post('https://api.home.nest.com/oauth2/access_token')
     .query({
-      client_id: PROD_ID,
-      client_secret: PROD_SECRET,
+      client_id: process.env.PROD_ID,
+      client_secret: process.env.PROD_SECRET,
       grant_type: 'authorization_code',
-      code: PIN
+      code: process.env.PIN
     })
     .then(res => {
-      const accessToken = `Bearer ${res.body.access_token}`;
-      bearer(accessToken);
+      ACCESS_TOKEN=`Bearer ${res.body.access_token}`;
     })
     .catch(err =>
       console.error('Error in access token post:', err.response.res.req.socket._httpMessage.res.text
