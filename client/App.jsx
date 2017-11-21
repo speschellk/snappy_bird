@@ -24,8 +24,8 @@ class App extends Component {
     return (
       <div>
         <Video url={'https://video.nest.com/embedded/live/VaM9CN'} />
-        <SnapButton handleSnapshot={this.handleSnapshot} />
         <SnapPanel pics={this.state.pics} />
+        <SnapButton handleSnap={this.handleSnapshot} />
       </div>
     );
   }

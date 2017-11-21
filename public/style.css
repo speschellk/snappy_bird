@@ -1,18 +1,47 @@
-body {
+/* iframe container div */
+.video-container {
+  margin: 10px 0 10px 10px;
+  float: left;
+  border-radius: 3px;
+}
 
+/* iframe */
+.video {
+  width: 1000px;
+  height: 560px;
+  border: none;
+  border-radius: 3px;
 }
 
 /* holds list of snapshots */
 .snapshot-panel {
-
+  float: right;
+  width: 220px;
+  height: 560px;
+  margin: 10px 10px 0 0;
+  background-color: #27a5ff;
+  border-radius: 3px;
 }
 
 /* span that holds each snapshot */
 .snapshot-container {
+  margin: 8.5px 8.5px 0 8.5px;
+  border-radius: 3px;
+}
 
+/* div container for button */
+.button-container {
+  width: 1000px;
 }
 
 /* put a bird on it button */
 .snap-button {
-
+  font-size: 20px;
+  color: #fff;
+  height: 50px;
+  width: 200px;
+  border: none;
+  margin-left: 10px;
+  border-radius: 3px;
+  background-color: #27a5ff;
 }

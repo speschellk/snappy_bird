@@ -1,7 +1,9 @@
 import React from 'react';
 
-const Video = (props) => (
-  <iframe allowFullScreen src={props.url} frameBorder="0" width="1000" height="563"></iframe>
+const Video = props => (
+  <div className="video-container">
+    <iframe className="video" allowFullScreen src={props.url} />
+  </div>
 );
 
 export default Video;

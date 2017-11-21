@@ -5,19 +5,21 @@
   "author": "Kay Christensen, kaychristensen@gmail.com",
   "license": "MIT",
   "scripts": {
-    "build": "NODE_ENV=production webpack -p",
+    "build:prod": "NODE_ENV=production webpack -p",
     "build:dev": "NODE_ENV=development webpack -d",
-    "dev": "webpack-dev-server",
-    "start": "NODE_ENV=server nodemon server.js",
+    "dev": "NODE_ENV=development webpack-dev-server",
+    "start": "NODE_ENV=development nodemon server.js",
     "test:coverage": "jest --coverage",
     "test:update": "jest -u",
+    "test": "jest",
     "watch": "webpack --watch"
   },
   "dependencies": {
     "axios": "^0.17.1",
     "express": "^4.15.4",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "styled-components": "^2.2.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
