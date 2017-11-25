@@ -13,7 +13,6 @@ class App extends Component {
     axios
       .get('/snapshot')
       .then(({data}) => {
-        console.log('then:', data)
         this.state.pics.push(data);
         this.setState({ pics: this.state.pics });
       })

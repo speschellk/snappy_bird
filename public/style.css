@@ -29,6 +29,22 @@
   border-radius: 3px;
 }
 
+.snapshot-container img {
+  height: 100px;
+  width: 200px;
+  transition: transform .2s linear;
+  transform: scale(1);
+  transform-origin: top right;
+  cursor: zoom-in;
+}
+
+.expanded img {
+  transition: transform .2s linear;
+  transform: scale(5);
+  transform-origin: 115% -5%;
+  cursor: zoom-out;
+}
+
 /* div container for button */
 .button-container {
   width: 1000px;

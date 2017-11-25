@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Snapshot = props => {
-  return (
-    <div className="snapshot-container">
-      <img src={props.filepath} alt="Hummingbird" height="100" width="200" />
-    </div>
-  );
-};
+class Snapshot extends Component {
+  state = { expanded: false };
+
+  handleClick = () => {
+    console.log('clicked', this.state.expanded)
+    this.setState({ expanded: !this.state.expanded });
+  };
+
+  render() {
+    return (
+      <div className={this.state.expanded ? "snapshot-container expanded" : "snapshot-container"}>
+        <img
+          onClick={this.handleClick}
+          src={this.props.filepath}
+          alt="Hummingbird"
+        />
+      </div>
+    );
+  }
+}
 
 export default Snapshot;
