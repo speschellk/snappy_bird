@@ -32,16 +32,37 @@
 .snapshot-container img {
   height: 100px;
   width: 200px;
-  transition: transform .2s linear;
+  /* transition: transform .2s linear;
   transform: scale(1);
-  transform-origin: top right;
+  transform-origin: top right; */
   cursor: zoom-in;
 }
 
-.expanded img {
-  transition: transform .2s linear;
-  transform: scale(5);
-  transform-origin: 115% -5%;
+.backdrop {
+  position: fixed;
+  min-height: 100%;
+  min-width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.9);
+  padding: 50;
+};
+
+.modal {
+  border-radius: 5px;
+  width: 500px;
+  min-height: 300px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.modal-img {
+  display: block;
+  margin: 5% auto;
+  width: 1000px;
+  height: 560px;
   cursor: zoom-out;
 }
 
