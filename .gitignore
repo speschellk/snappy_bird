@@ -5,7 +5,8 @@ node_modules/
 npm-debug.log
 
 ## Compiled files
-public/bundle.js
+public/*
+!public/style.css
 
 ## API info
 client/lib/nest.config.js
